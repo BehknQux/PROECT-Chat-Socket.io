@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Teko:wght@300..700&display=swap');
+/* Font Names = Delicious Handrawn, Teko, Exo 2 */
+:root {
+    --test-border: 2px solid white;
+    --warning: rgb(255, 243, 7);
+}
+::-webkit-scrollbar{
+    width: 0.5rem;
+}
+::-webkit-scrollbar-thumb {
+    background-color: white;
+}
+body{
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+
+    background-color: black;
+    color: white;
+    font-size: 2rem;
+    margin: 0;
+}
+.main-container{
+    height: 100dvh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login{
+    width: 25rem;
+    height: 25rem;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.username-input{
+    text-align: center;
+    outline: none;
+    border: var(--test-border);
+    background-color: transparent;
+    color: white;
+    font-size: 2rem;
+}
+.power-button{
+    background-color: transparent;
+    border: var(--test-border);
+    color: white;
+    width: 10rem;
+    height: 10rem;
+    margin-top: 1rem;
+    border-radius: 50%;
+    font-size: 7rem;
+    
+    position: absolute;
+    bottom: -1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.power-button:hover{
+    animation: lens-flare ease-out 0.3s forwards;
+}
+@keyframes lens-flare {
+    30% {
+        box-shadow: 0 0 3rem 1rem white;
+        transform: scale(1.15);
+    }
+    100%{
+        transform: scale(1.1);
+        box-shadow: 0 0 3rem 0.1rem white;
+    }
+}
+.power-button:active{
+    background-color: white;
+    color: black;
+}
+.application {
+    width: 60rem;
+    height: 35rem;
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contacts-list{
+    position: absolute;
+    left: -10rem;
+    width: 16rem;
+    height: 32rem;
+    padding: 0.5rem 0.5rem;
+    overflow-x: visible ;
+    overflow-y: auto;
+}
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+    padding: 5px 0;
+    border-radius: 3rem;
+    cursor: pointer;
+}
+.contact-selected{
+    background: linear-gradient(to right, white 15%, black 50%);
+}
+.contact-container:hover{
+    z-index: -1;
+    background:linear-gradient(to right, white 15%, black 50%) ;
+}
+.contact-avatar{
+    position: relative;
+    border: var(--test-border);
+    border-radius: 50%;
+    height: 100%;
+    width: 4rem;
+}
+.notification{
+    font-family: Teko;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-radius: 50%;
+    background-color: var(--warning);
+    color: black;
+    font-weight: bold;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1rem;
+    
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+.contact-informations{
+    display: flex;
+    background-color: black;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 0.5rem;
+    border: var(--test-border);
+    border-radius: 1rem;
+    width: 10rem;
+    height: 4rem;
+}
+.contact-name{
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.contact-last-message{
+    font-size: small;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.my-last-message{
+    color: var(--warning);
+}
+.chat-window{
+    margin-left: 0.5rem;
+    width: 45rem;
+    height: 100%;
+    /* border-radius: 1.5rem; */
+    border-left: 2px solid white;
+    border-right: 2px solid var(--warning);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.messages{
+    height: 29rem;
+    margin: 1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+.message-aligner{
+    display: flex;
+    justify-content: start;
+    margin-top: 0.1rem;
+}
+.user-message-alignment{
+    justify-content: end;
+}
+.message-box{
+    background-color: white;
+    color: black;
+    border-radius: 2rem;
+    min-height: 1rem;
+    min-width: 4rem;
+    text-align: start;
+    max-width: 80%;
+    padding: 1rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.user-message-box{
+    background-color: var(--warning);
+}
+.message-content{
+    font-size: 1.2rem;
+}
+.message-time {
+    color: #00000086;
+    font-size: small;
+    margin-left: 0.5rem;
+}
+.message-input{
+    border: 0;
+    height: 2.5rem;
+    background: linear-gradient(to right, white , var(--warning));
+    color: black;
+    outline: none;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.2rem;
+}
+.message-input:focus{
+    background: transparent;
+    color: white;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, white , var(--warning));
+    border-image-slice: 1;
+}

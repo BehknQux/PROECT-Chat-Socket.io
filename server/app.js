@@ -18,11 +18,14 @@ const io = new Server(server, {
 const onlineUsers = [];
 
 io.on("connection", socket => {
-    socket.on("Message", (message, senderID, receiverID) => {
-        socket.to(receiverID).emit("receiveMessage", message, senderID, receiverID);
+    socket.on("Message", (message, senderID, receiverID, time, isSeen) => {
+        socket.to(receiverID).emit("receiveMessage", message, senderID, receiverID, time, isSeen);
     });
-    socket.on("OnlineUser", (username, socketID, avatar) => {
-        onlineUsers.push({username, userID : socketID , avatar});
+    socket.on("SendSeenInfo", (senderID, receiverID) => {
+        socket.to(receiverID).emit("SeenInfo", senderID)
+    })
+    socket.on("OnlineUser", (username, socketID, avatar, hasSeenYou) => {
+        onlineUsers.push({username, userID : socketID , avatar, hasSeenYou});
         io.emit("setOnlineUsers", onlineUsers);
     })
 });
