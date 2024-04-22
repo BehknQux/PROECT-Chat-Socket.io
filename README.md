@@ -1,2 +1,2 @@
 # PROECT-Chat-Socket.io
- Simple chat project that you can messaging with diferent Tabs.
+ Simple chat project that you can messaging with different Tabs.
